@@ -10,23 +10,23 @@ CREATE TABLE #RowsInserted
    ,[Date]      DATETIME
 );
 
-INSERT INTO dbo.Badges
+INSERT INTO [dbo].[Badges]
 (
     [Name]
    ,[UserId]
    ,[Date]
 )
 	OUTPUT  INSERTED.[Id]
-		   ,INSERTED.[Name]
-		   ,INSERTED.[UserId]
-		   ,INSERTED.[Date]
-	INTO	#RowsInserted
+           ,INSERTED.[Name]
+           ,INSERTED.[UserId]
+           ,INSERTED.[Date]
+	INTO    #RowsInserted
 
 	SELECT  N'Sunny Disposition'
-		   ,[Id]
-		   ,GETDATE()
-	FROM	dbo.Users
-	WHERE	[Location] = N'Iceland';
+           ,[Id]
+           ,GETDATE()
+	FROM    [dbo].[Users]
+	WHERE   [Location] = N'Iceland';
 
 SELECT	*
 FROM	#RowsInserted;
