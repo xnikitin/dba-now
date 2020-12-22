@@ -16,17 +16,17 @@ INSERT INTO [dbo].[Badges]
    ,[UserId]
    ,[Date]
 )
-	OUTPUT  INSERTED.[Id]
+    OUTPUT  INSERTED.[Id]
            ,INSERTED.[Name]
            ,INSERTED.[UserId]
            ,INSERTED.[Date]
-	INTO    #RowsInserted
+    INTO    #RowsInserted
 
-	SELECT  N'Sunny Disposition'
+    SELECT  N'Sunny Disposition'
            ,[Id]
            ,GETDATE()
-	FROM    [dbo].[Users]
-	WHERE   [Location] = N'Iceland';
+    FROM    [dbo].[Users]
+    WHERE   [Location] = N'Iceland';
 
 SELECT	*
 FROM	#RowsInserted;
