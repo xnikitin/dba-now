@@ -5,26 +5,26 @@
 CREATE TABLE #RowsInserted 
 (
 	[Id]		INT
-   ,[Name]		NVARCHAR(40)
-   ,[UserId]	INT
-   ,[Date]		DATETIME
+	,[Name]		NVARCHAR(40)
+	,[UserId]	INT
+	,[Date]		DATETIME
 );
 
 INSERT INTO dbo.Badges
 (
 	[Name]
-   ,[UserId]
-   ,[Date]
+	,[UserId]
+	,[Date]
 )
 	OUTPUT	INSERTED.[Id]
-		   ,INSERTED.[Name]
-		   ,INSERTED.[UserId]
-		   ,INSERTED.[Date]
+			,INSERTED.[Name]
+			,INSERTED.[UserId]
+			,INSERTED.[Date]
 	INTO	#RowsInserted
 
 	SELECT	N'Sunny Disposition'
-		   ,[Id]
-		   ,GETDATE()
+			,[Id]
+			,GETDATE()
 	FROM	dbo.Users
 	WHERE	[Location] = N'Iceland';
 
