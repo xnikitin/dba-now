@@ -4,27 +4,27 @@
 
 CREATE TABLE #RowsInserted 
 (
-	[Id]		INT
-	,[Name]		NVARCHAR(40)
-	,[UserId]	INT
-	,[Date]		DATETIME
+    [Id]        INT
+   ,[Name]      NVARCHAR(40)
+   ,[UserId]    INT
+   ,[Date]      DATETIME
 );
 
 INSERT INTO dbo.Badges
 (
-	[Name]
-	,[UserId]
-	,[Date]
+    [Name]
+   ,[UserId]
+   ,[Date]
 )
-	OUTPUT	INSERTED.[Id]
-			,INSERTED.[Name]
-			,INSERTED.[UserId]
-			,INSERTED.[Date]
+	OUTPUT  INSERTED.[Id]
+		   ,INSERTED.[Name]
+		   ,INSERTED.[UserId]
+		   ,INSERTED.[Date]
 	INTO	#RowsInserted
 
-	SELECT	N'Sunny Disposition'
-			,[Id]
-			,GETDATE()
+	SELECT  N'Sunny Disposition'
+		   ,[Id]
+		   ,GETDATE()
 	FROM	dbo.Users
 	WHERE	[Location] = N'Iceland';
 
